@@ -3,7 +3,7 @@ module V1
 
 		def index
 			@categories = Category.all
-			render json: @categories, each_serializer: CategorySerializer
+			render json: @categories, each_serializer: CategorySerializer, root: nil
 		end
 
 	end
