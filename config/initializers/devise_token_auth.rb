@@ -26,4 +26,5 @@ DeviseTokenAuth.setup do |config|
   # password is updated.
   # config.check_current_password_before_update = :attributes
   config.default_confirm_success_url = "http://localhost:3000"
+  config.token_lifespan = 1.day
 end
