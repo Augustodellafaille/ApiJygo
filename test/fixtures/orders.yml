@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shopper_id: 
+  customer_id: 
+  review_id: 
+  date: 2015-11-05
+  begin_time: 2015-11-05 18:04:10
+  end_time: 2015-11-05 18:04:10
+  delivered: false
+  commission_shopper: 1.5
+  commission_jygo: 1.5
+  comment: MyText
+
+two:
+  shopper_id: 
+  customer_id: 
+  review_id: 
+  date: 2015-11-05
+  begin_time: 2015-11-05 18:04:10
+  end_time: 2015-11-05 18:04:10
+  delivered: false
+  commission_shopper: 1.5
+  commission_jygo: 1.5
+  comment: MyText
