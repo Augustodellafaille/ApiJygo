@@ -11,4 +11,6 @@ class User < ActiveRecord::Base
   has_many :reveived_reviews, :class_name => 'Review', :foreign_key => 'receiver_id'
   has_many :shoppers, :through => :passed_orders
   has_many :customers, :through => :accepted_orders
+
+  has_and_belongs_to_many :skills
 end

@@ -9,7 +9,7 @@ module V1
 
 		def getShoppers
 			@shoppers = User.where(isshopper: true)
-			render json: @shoppers, each_serializer: ShoppersSerializer
+			render json: @shoppers, each_serializer: ShoppersSerializer, root: "shoppers"
 		end
 
 	end

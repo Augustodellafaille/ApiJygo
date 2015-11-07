@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151105182010) do
+ActiveRecord::Schema.define(version: 20151107042009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,18 @@ ActiveRecord::Schema.define(version: 20151105182010) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "skills_users", force: :cascade do |t|
+    t.integer "users_id"
+    t.integer "skills_id"
+  end
+
+  add_index "skills_users", ["skills_id"], name: "index_skills_users_on_skills_id", using: :btree
+  add_index "skills_users", ["users_id"], name: "index_skills_users_on_users_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "provider",               default: "email", null: false
     t.string   "uid",                    default: "",      null: false
@@ -99,6 +111,19 @@ ActiveRecord::Schema.define(version: 20151105182010) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "isshopper"
+    t.string   "phone"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "city"
+    t.string   "zip_code"
+    t.string   "firstname"
+    t.string   "lastname"
+    t.boolean  "admin"
+    t.text     "bio"
+    t.string   "availability"
+    t.float    "total_com"
+    t.integer  "radius"
+    t.boolean  "accept_auto"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
