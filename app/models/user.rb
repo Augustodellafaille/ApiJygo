@@ -12,5 +12,7 @@ class User < ActiveRecord::Base
   has_many :shoppers, :through => :passed_orders
   has_many :customers, :through => :accepted_orders
 
+  has_many :availabilities
+
   has_and_belongs_to_many :skills
 end

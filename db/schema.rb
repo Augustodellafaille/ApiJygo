@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151107042009) do
+ActiveRecord::Schema.define(version: 20151107134834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(version: 20151107042009) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "general_availabilities", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "weekday"
+    t.time     "begin_time"
+    t.time     "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "general_availabilities", ["user_id"], name: "index_general_availabilities_on_user_id", using: :btree
 
   create_table "order_contents", force: :cascade do |t|
     t.integer  "order_id"
@@ -130,6 +141,7 @@ ActiveRecord::Schema.define(version: 20151107042009) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
 
+  add_foreign_key "general_availabilities", "users"
   add_foreign_key "order_contents", "orders"
   add_foreign_key "orders", "reviews"
   add_foreign_key "products", "categories"
