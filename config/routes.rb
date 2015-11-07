@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   namespace :v1, defaults: { format: :json } do
     resources :users, only: [:show]
     resources :products, only: [:index]
+    resources :orders, only: [:create]
+    resources :reviews, only: [:create]
+
+    get '/shoppers' => "users#getShoppers"
+
   end
 end
   # The priority is based upon order of creation: first created -> highest priority.
