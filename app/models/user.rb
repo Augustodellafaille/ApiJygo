@@ -14,4 +14,6 @@ class User < ActiveRecord::Base
 
   has_many :availabilities
 
+  has_and_belongs_to_many :tags
+
 end
