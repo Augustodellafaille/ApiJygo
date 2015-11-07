@@ -53,6 +53,7 @@ GEM
       devise (~> 3.5.2)
       rails (~> 4.2)
     erubis (2.7.0)
+    geocoder (1.2.11)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hashie (3.4.2)
@@ -135,6 +136,7 @@ DEPENDENCIES
   active_model_serializers
   devise
   devise_token_auth
+  geocoder
   omniauth
   pg
   pry-rails

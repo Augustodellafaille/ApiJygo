@@ -16,4 +16,11 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :tags
 
+  geocoded_by :full_street_address
+  after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
+
+  def full_street_address
+    [address, zip_code, city].compact.join(', ')
+  end
+
 end
